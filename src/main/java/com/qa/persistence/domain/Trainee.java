@@ -12,26 +12,28 @@ import javax.validation.constraints.Size;
 @Entity
 public class Trainee {
 	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	private long traineeId;
+	
 	private String fName;
 	private String lName;
 	
 	
 	//@ManyToOne(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "post_id")
+    //@JoinColumn(name = "classroomid")
 	private long classroomId;
 	
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Id
-	private int id;
+
 	
 	public Trainee() {
 		
 	}
 	
-	public Trainee(int accountNumber, String fName, String lName) {
+	public Trainee(long classroomId, String fName, String lName) {
 		this.fName = fName;
 		this.lName = lName;
-		this.id = accountNumber;
+		this.classroomId = classroomId;
 	}
 
 	public Trainee(String fName, String lName) {
@@ -55,12 +57,12 @@ public class Trainee {
 		this.lName = lName;
 	}
 
-	public int getId() {
-		return id;
+	public long getTraineeId() {
+		return traineeId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setTraineeId(long traineeId) {
+		this.traineeId = traineeId;
 	}
 
 	public long getClassroomId() {
@@ -73,6 +75,10 @@ public class Trainee {
 
 	@Override
 	public String toString() {
-		return "Account [fName=" + fName + ", lName=" + lName + ", accountNumber=" + id + "]";
+		return "Trainee [traineeId=" + traineeId + ", fName=" + fName + ", lName=" + lName + ", classroomId="
+				+ classroomId + "]";
 	}
+
+	
+	
 }

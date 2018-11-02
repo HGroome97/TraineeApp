@@ -55,7 +55,7 @@ public class TraineeDBRepository implements TraineeRepository {
 	
 	@Transactional(REQUIRED)
 	public String updateTrainee(Trainee t) {
-		Trainee traineeInDB = findTrainee(t.getId());
+		Trainee traineeInDB = findTrainee(t.getTraineeId());
 		traineeInDB.setfName(t.getfName());
 		traineeInDB.setlName(t.getlName());
 		traineeInDB.setClassroomId(t.getClassroomId());
