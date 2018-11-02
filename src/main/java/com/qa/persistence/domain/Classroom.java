@@ -16,15 +16,14 @@ import javax.persistence.OneToMany;
 public class Classroom {
 
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy="order")
-	@JoinColumn(name = "traineeId")
-	private List<Trainee> trainees = new ArrayList<>();
-	
-	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private long classroomId;
 	private String trainer;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "traineeId")
+	private List<Trainee> trainees = new ArrayList<>();
 	
 	
 	public Classroom() {
@@ -61,6 +60,11 @@ public class Classroom {
 	}
 	public void setTrainees(List<Trainee> trainees) {
 		this.trainees = trainees;
+	}
+
+	@Override
+	public String toString() {
+		return "Classroom [classroomId=" + classroomId + ", trainer=" + trainer + ", trainees=" + trainees + "]";
 	}
 	
 }
