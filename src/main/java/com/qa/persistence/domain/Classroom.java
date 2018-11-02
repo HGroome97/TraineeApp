@@ -25,8 +25,7 @@ public class Classroom {
 	@Id
 	private long classroomId;
 	private String trainer;
-
-
+	
 	
 	public Classroom() {
 		
