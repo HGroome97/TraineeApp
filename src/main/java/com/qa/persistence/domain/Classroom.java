@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,8 +22,8 @@ public class Classroom {
 	private long classroomId;
 	private String trainer;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "traineeId")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "classroomId")
 	private List<Trainee> trainees = new ArrayList<>();
 	
 	
